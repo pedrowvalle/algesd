@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class ALGESD04 {
 
    public static int buscaLinearRec(int vet[ ], int elem, int ini) {

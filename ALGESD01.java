@@ -1,10 +1,10 @@
-public class Algesd01 {
+public class ALGESD01 {
    public static void main (String args[]){
       
       int n = 3;
       
       System.out.println ("Fatorial de " + n + ": " + fatorial(n));
-      System.out.println ("Posição " + n + " na sequencia de fibonacci: " + fibonacci(n));
+      System.out.println ("Posiï¿½ï¿½o " + n + " na sequencia de fibonacci: " + fibonacci(n));
       System.out.println ("Hanoi de " + n + ": " + hanoi(n));
       hanoiProf(n, 'A', 'B', 'C');      
    }

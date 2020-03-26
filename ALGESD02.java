@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-   public class Buscas
+   public class ALGESD02
    {
       public static int buscaLinear(int vet[], int procurado)
       {

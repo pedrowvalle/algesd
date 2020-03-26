@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class ALGESD031 {
+public class ALGESD03 {
 
 	public static int buscaBinaria (int vet[], int procurado)
     {
