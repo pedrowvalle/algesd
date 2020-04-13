@@ -56,40 +56,33 @@ public class ALGESD06
 
 	public static void mergeSortDec(int vet[],int ini,int fim) 
    {
-      int meio, aux; // variável auxiliar para trocas   
+      int meio;
 	
-		System.out.println("Comeca  mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+fim);
-
 		if( ini < fim) {  
  			meio= (ini+fim)/2; // acha o meio
-			
-			System.out.println("Chama   mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+meio);
-			mergeSortDec(vet, ini, meio); // ordena a primeira parte
-			System.out.println("Chama   mergesort para o vetor="+Arrays.toString(vet)+" com ini="+(meio+1)+" e fim="+fim);
- 		  	mergeSortDec(vet, meio+1, fim); // ordena a segunda parte			
-			System.out.println("Comeca  merge     para o vetor="+Arrays.toString(vet)+" com 1a de "+ini+" ate "+meio+" e 2a de "+(meio+1)+" até "+fim);
-		  	mergeDec(vet, ini, meio, meio+1, fim); // intercala
-			System.out.println("Termina merge     para o vetor="+Arrays.toString(vet)+" com 1a de "+ini+" ate "+meio+" e 2a de "+(meio+1)+" até "+fim);
+		mergeSortDec(vet, ini, meio); // ordena a primeira parte
+		mergeSortDec(vet, meio+1, fim); // ordena a segunda parte
+		mergeDec(vet, ini, meio, meio+1, fim); // intercala
 		}      
 
-		System.out.println("Termina mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+fim);
+		
 
    }
    
 	public static void mergeDec(int vet[ ],int ini1, int fim1, int ini2, int fim2)
    {
-      int i1 = ini1; 
+		int i1 = ini1; 
 		int i2 = ini2;
 		int iaux = ini1;
-  		int vetaux[] = new int[vet.length];
-	   
+		int vetaux[] = new int[vet.length];
+		
 		while (i1 <= fim1 && i2 <= fim2){
 			if(vet[i1] >= vet [i2])
 				vetaux[iaux++]=vet[i1++];
 			else
 				vetaux[iaux++]=vet[i2++];
 		}	
-	 
+		
 		if (i1 <= fim1)
 		{	while (i1 <=fim1)
 				vetaux[iaux++]=vet[i1++];
@@ -99,29 +92,22 @@ public class ALGESD06
 			while (i2 <=fim2)
 				vetaux[iaux++]=vet[i2++];
 		}	
-	
+
 		for (int i=ini1;i<=fim2;i++)
 			vet[i] = vetaux[i];
 	}
 
 	public static int mergeSortCtc(int vet[],int ini,int fim) 
-   {   int meio, aux, contador = 0; // variável auxiliar para trocas   
+   {   int meio; 
 	
-		System.out.println("Comeca  mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+fim);
       contagem++;
 		if( ini < fim) {  
  			meio= (ini+fim)/2; // acha o meio
 			
-			System.out.println("Chama   mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+meio);
 			mergeSortCtc(vet, ini, meio); // ordena a primeira parte
-			System.out.println("Chama   mergesort para o vetor="+Arrays.toString(vet)+" com ini="+(meio+1)+" e fim="+fim);
- 		  	mergeSortCtc(vet, meio+1, fim); // ordena a segunda parte			
-			System.out.println("Comeca  merge     para o vetor="+Arrays.toString(vet)+" com 1a de "+ini+" ate "+meio+" e 2a de "+(meio+1)+" até "+fim);
+ 		  	mergeSortCtc(vet, meio+1, fim); // ordena a segunda parte
 		  	mergeCtc(vet, ini, meio, meio+1, fim); // intercala
-			System.out.println("Termina merge     para o vetor="+Arrays.toString(vet)+" com 1a de "+ini+" ate "+meio+" e 2a de "+(meio+1)+" até "+fim);
-		}      
-
-		System.out.println("Termina mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+fim); 
+		}
       return contagem;
    }
    
@@ -167,23 +153,14 @@ public class ALGESD06
 
 	public static int mergeSortCta(int vet[],int ini,int fim) 
    {  
-      int meio, aux, contador = 0; // variável auxiliar para trocas   
-	
-		System.out.println("Comeca  mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+fim);
+      int meio;
 		if( ini < fim) {  
          meio= (ini+fim)/2; // acha o meio
          contagem++;
-			
-			System.out.println("Chama   mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+meio);
 			mergeSortCta(vet, ini, meio); // ordena a primeira parte
-			System.out.println("Chama   mergesort para o vetor="+Arrays.toString(vet)+" com ini="+(meio+1)+" e fim="+fim);
- 		  	mergeSortCta(vet, meio+1, fim); // ordena a segunda parte			
-			System.out.println("Comeca  merge     para o vetor="+Arrays.toString(vet)+" com 1a de "+ini+" ate "+meio+" e 2a de "+(meio+1)+" até "+fim);
+ 		  	mergeSortCta(vet, meio+1, fim); // ordena a segunda parte
 		  	mergeCta(vet, ini, meio, meio+1, fim); // intercala
-			System.out.println("Termina merge     para o vetor="+Arrays.toString(vet)+" com 1a de "+ini+" ate "+meio+" e 2a de "+(meio+1)+" até "+fim);
-		}      
-
-		System.out.println("Termina mergesort para o vetor="+Arrays.toString(vet)+" com ini="+ini+" e fim="+fim); 
+		}; 
       return contagem;
    }
    
