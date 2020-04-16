@@ -38,7 +38,8 @@ public class ALGESD07 {
     }
 
     public static int separa(int vet[], int ini, int fim) {
-        int c = vet[ini], i = ini + 1, j = fim, aux;
+        int r = ini + ((int)Math.random()*(vet.length))/(fim+ini+1);
+        int c = vet[r], i = ini + 1, j = fim, aux;
         while (i <= j) {
             while (i <= fim && vet[i] >= c)
                 ++i;
@@ -76,8 +77,9 @@ public class ALGESD07 {
 
         long inicio, tempo;
 
-        int[] vet4 = new int[500000];
-        preencheAleatorio(vet4, 500000);
+        int a = 200000;
+        int[] vet4 = new int[a];
+        preencheAleatorio(vet4, a);
         inicio = System.currentTimeMillis();
         quickSort(vet4, 0, vet4.length-1);
         tempo = System.currentTimeMillis() - inicio;
