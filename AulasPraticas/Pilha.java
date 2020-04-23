@@ -62,7 +62,7 @@ public class Pilha {
 	void destroy(){
 		topo=-1; 
     }
-    
+    //====== Exercício a =======
     boolean palindromo (String s){
 		String res = "";
 		for(int i = 0; i < s.length(); i++){
@@ -75,7 +75,7 @@ public class Pilha {
 			return true;
 		return false;
     }
-
+	//====== Exercício b =======
     String inverteFrase (String s){
 		String res = "";
 		for (int i = 0; i < s.length(); i++){
@@ -141,10 +141,7 @@ public class Pilha {
 		System.out.println("esta vazia? "+p2.isempty());
         System.out.println("esta cheia? "+p2.isfull());*/
 
-        String w1 = "Eu fui passear";
-        Pilha p3 = new Pilha(w1.length());
-		System.out.println(p3.inverteFrase(w1));
-		
+		//====== Exercício a =======
 		String w2 = "arara";
 		Pilha p4 = new Pilha(w2.length());
 		if(p4.palindromo(w2)){
@@ -152,5 +149,10 @@ public class Pilha {
 		}else{
 			System.out.println("A palavra " + w2 + " não é um palíndromo");
 		}
+
+		//====== Exercício b =======
+        String w1 = "Eu fui passear";
+        Pilha p3 = new Pilha(w1.length());
+		System.out.println(p3.inverteFrase(w1));
 	}
 }
