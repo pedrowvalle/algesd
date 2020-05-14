@@ -1,3 +1,5 @@
+import sun.security.util.Length;
+
 class DequeChar {
 
 	private int tamanho, front, rear;
@@ -17,55 +19,72 @@ class DequeChar {
 		rear = tamanho - 1;
 	}
 
-	boolean isfull() {
-		if (rear == tamanho - 1)
-			return true;
-		else
-			return false;
-	}
+	boolean isfull(){
+        if (front == rear)
+            return true;
+        else
+            return false;
+    }
 
 	boolean isempty() {
-		if (front == rear)
+		if (front == (rear - (tamanho-1)))
 			return true;
 		else
 			return false;
 	}
 
 	void incIni(char elem) {
-		if (front <= rear){
-			vet[front++] = elem;
-		}else{
+		if (front < rear) {
+			front++;
+			for (int i = front; i > 0; i--){
+				vet[i] = vet[i-1];
+			}
+			vet[0] = elem;
+		} else if (front == rear){
+			for (int i = front; i > 0; i--){
+				vet[i] = vet[i-1];
+			}
+			vet[0] = elem;
+		} else {
 			System.out.println("Overflow!");
 		}
+
 	}
 
 	void incFim(char elem) {
-		if (rear >= front){
-			vet[rear--] = elem;
-		}else{
+		if(rear > front){
+			rear--;
+			for(int i = rear; i < vet.length-1; i++){
+				vet[i] = vet[i+1];
+			}
+			vet[vet.length-1] = elem;
+		}else if (rear == front){
+			for(int i = rear; i < vet.length-1; i++){
+				vet[i] = vet[i+1];
+			}
+			vet[vet.length-1] = elem;
+		}else {
 			System.out.println("Overflow!");
 		}
 	}
 
 	char retIni() {
-		char aux = vet[front -1];
-		for (int i = front - 1; i > 0; i--){
-			vet[i] = vet[i-1];
-			if (i - 1 == 0){
-				vet[i-1] = ' ';
-			}
+		char aux = vet[0];
+		front--;
+		for (int i = 0; i < front; i++){
+			vet[i] = vet[i+1];
 		}
+		vet[front] = ' ';
 		return aux;
 	}
 
 	char retFim() {
-		char aux = vet[rear + 1];
-		for (int i = rear + 1; i < tamanho - 1; i++){
-			vet [i] = vet[i+1];
-			if (i + 1 == tamanho - 1){
-				vet [i + 1] = ' ';
-			}
+		char aux = vet[vet.length-1];
+		for (int i = vet.length-1; i > rear; i--){
+			vet[i] = vet[i-1];
 		}
+		vet[rear] = ' ';
+		rear++;
 		return aux;
 	}
 
